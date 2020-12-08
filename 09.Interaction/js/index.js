@@ -105,7 +105,7 @@ canvas.addEventListener("click", (e) => {
   }
 
   if (step === 1 && selectedBox) {
-    console.log(selectedBox.index);
+    // console.log(selectedBox.index);
     step = 2;
   } else if (step === 3) {
     step = 1;
