@@ -6,16 +6,6 @@ document.body.appendChild(canvas);
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
-const mouse = {
-  x: innerWidth / 2,
-  y: innerHeight / 2,
-};
-
-window.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
-
 window.addEventListener("resize", () => {
   canvas.width = innerWidth;
   canvas.height = innerHeight;
