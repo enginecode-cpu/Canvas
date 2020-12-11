@@ -34,7 +34,7 @@ class Circle {
     this.maxRadius = 40;
     this.minRadius = radius;
 
-    this.colorArray = ["#ffaa33", "#99ffaa", "#00ff00", "#4411aa", "#ff1100"];
+    this.colorArray = ["#d35400", "#2ecc71", "#3498db", "#e056fd", "#ffdd59"];
     this.colors = this.colorArray[
       Math.floor(Math.random() * this.colorArray.length)
     ];
