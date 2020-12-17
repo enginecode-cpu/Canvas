@@ -15,9 +15,6 @@ export class Circle {
     this.context = context;
 
     this.mass = 1;
-
-    this.draw();
-    this.update();
   }
 
   draw() {
