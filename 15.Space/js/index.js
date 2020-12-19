@@ -1,4 +1,3 @@
-import { Particle } from "./Particle.js";
 import { Star } from "./Star.js";
 import { randomIntFromRange } from "./utils.js";
 
@@ -17,34 +16,9 @@ window.addEventListener("resize", () => {
   init();
 });
 
-const colors1 = [
-  "#f6e58d",
-  "#e67e22",
-  "#d35400",
-  "#f39c12",
-  "#e74c3c",
-  "#ff9f43",
-  "#f9ca24",
-];
-
-let particles1;
-let stars;
+let stars = [];
 function init() {
-  particles1 = [];
-  const radius1 = 3;
-  for (let i = 0; i < 50; i++) {
-    let particle = new Particle(
-      innerWidth / 2,
-      innerHeight / 2,
-      radius1,
-      colors1,
-      context
-    );
-    particles1.push(particle);
-  }
-
-  stars = [];
-  const starCount = 1000;
+  const starCount = 2000;
   const angleIncrement = (Math.PI * 2) / starCount;
   for (let i = 0; i < starCount; i++) {
     let star = new Star(
@@ -63,15 +37,21 @@ function init() {
 
 function animate() {
   // context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = "rgba(0, 0, 0, 0.05)";
+  context.fillStyle = "rgba(0, 0, 0)";
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  particles1.forEach((particle) => {
-    particle.update();
-  });
-
-  stars.forEach((star) => {
+  stars.forEach((star, index) => {
     star.update();
+    if (star.x > innerWidth || star.x < 0) {
+      stars.splice(index, 1);
+    }
+    if (star.y > innerHeight || star.y < 0) {
+      stars.splice(index, 1);
+    }
+    if (stars.length === 100) {
+      stars = [...stars];
+      init();
+    }
   });
 
   requestAnimationFrame(animate);
