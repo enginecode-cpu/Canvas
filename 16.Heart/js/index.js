@@ -26,7 +26,7 @@ function init() {
 }
 
 function animate() {
-  context.fillStyle = "rgba(0, 0, 0, 0.8)";
+  context.fillStyle = "rgba(0, 0, 0, 0.3)";
   context.fillRect(0, 0, canvas.width, canvas.height);
   particles.forEach((particle) => {
     particle.update();
@@ -42,9 +42,8 @@ window.onload = () => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
 
-    const particleCount = 900;
+    const particleCount = 100;
     const angleIncrement = (Math.PI * 2) / particleCount;
-    const power = 25;
     for (let i = 0; i < particleCount; i += 1) {
       particles.push(
         new Particle(
