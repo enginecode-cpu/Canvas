@@ -75,7 +75,7 @@ window.onload = () => {
   });
 };
 
-setInterval(() => {
+addEventListener("mouseout", () => {
   mouse.x = undefined;
   mouse.y = undefined;
-}, 1000);
+});
